@@ -1,0 +1,175 @@
+{
+    "project_name": "CineShield 2.0 Operational Analyst Console",
+    "app_type": "dashboard / saas_app (operational analyst console)",
+    "archetype": "High-Density Cinematic & Security Analyst Console",
+    "theme": {
+        "default": "dark",
+        "allow_toggle": true,
+        "background_base": "#090C10",
+        "surface_slate": "#111620",
+        "surface_card": "#171E2E",
+        "border_subtle": "#242F46",
+        "border_bright": "#3B4B6E",
+        "accent_gold": "#E5A93C",
+        "accent_gold_hover": "#F5B84C",
+        "accent_gold_glow": "rgba(229, 169, 60, 0.25)",
+        "text_primary": "#F1F5F9",
+        "text_secondary": "#94A3B8",
+        "text_muted": "#64748B",
+        "status": {
+            "critical_threat": "#EF4444",
+            "high_threat": "#F97316",
+            "medium_threat": "#EAB308",
+            "low_threat": "#3B82F6",
+            "resolved": "#10B981",
+            "duplicate": "#A855F7",
+            "verification_needed": "#06B6D4"
+        }
+    },
+    "typography": {
+        "font_family_heading": "Outfit, Barlow, sans-serif",
+        "font_family_body": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+        "font_family_mono": "JetBrains Mono, Source Code Pro, monospace",
+        "hierarchy": {
+            "h1_console_title": "text-2xl sm:text-3xl font-bold tracking-tight text-slate-100",
+            "h2_section_header": "text-xl sm:text-2xl font-semibold tracking-tight text-slate-100",
+            "h3_card_header": "text-base sm:text-lg font-medium text-slate-200",
+            "eyebrow_label": "text-xs font-mono uppercase tracking-widest text-amber-400/90",
+            "body_standard": "text-sm leading-relaxed text-slate-300",
+            "table_dense_data": "text-xs font-mono text-slate-200",
+            "metric_value": "text-xl sm:text-2xl font-mono font-bold text-slate-100"
+        }
+    },
+    "layout_and_spacing": {
+        "density": "high-density",
+        "grid_system": "bento-analyst",
+        "padding_containers": "p-3 sm:p-4 lg:p-6",
+        "gap_density": "gap-3 sm:gap-4",
+        "layout_structure": {
+            "header": "h-14 border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50 px-4 flex items-center justify-between",
+            "sidebar_nav": "w-64 border-r border-slate-800 bg-slate-950 flex flex-col justify-between hidden md:flex",
+            "main_viewport": "flex-1 overflow-y-auto bg-[#090C10] p-4 lg:p-6 space-y-6"
+        }
+    },
+    "visual_enhancers": {
+        "border_style": "1px solid #242F46",
+        "card_background": "bg-[#111620]/90 backdrop-blur-sm border border-[#242F46] rounded-md shadow-lg shadow-black/40",
+        "accent_glow": "box-shadow: 0 0 15px rgba(229, 169, 60, 0.15)",
+        "active_state_highlight": "border-l-4 border-l-amber-400 bg-slate-800/50",
+        "scanline_effect": "linear-gradient(rgba(18, 24, 36, 0) 50%, rgba(0, 0, 0, 0.25) 50%) background-size: 100% 4px"
+    },
+    "key_views_and_features": {
+        "review_queue": {
+            "is_landing_page": true,
+            "columns": [
+                "Case ID",
+                "Asset & Threat Match",
+                "Priority Score",
+                "Confidence",
+                "Coverage %",
+                "Severity",
+                "Novelty Index",
+                "Urgency",
+                "Source Platform",
+                "Processing Status",
+                "Actions"
+            ],
+            "features": [
+                "Quick Search",
+                "Multi-filter Drawer",
+                "Saved View Tabs (e.g., 'High Urgency', 'Rights Unverified', 'Duplicates')",
+                "Duplicate Grouping Toggle",
+                "Batch Action Bar",
+                "Dense Pagination"
+            ]
+        },
+        "evidence_package_viewer": {
+            "layout": "Side-by-side split screen + Timeline + Inspector Tabs",
+            "components": [
+                "Synchronized Video Player Controls (Play/Pause together, scrubber link, frame stepper)",
+                "Timeline scrubbing bar highlighting matched clip ranges (Protected vs Candidate)",
+                "Representative Frame Extraction Strip with micro-diff overlay",
+                "Audio Alignment Waveform & Fingerprint spectrum viewer",
+                "Multi-Metric Score Radar/Breakdown (Confidence 94%, Visual Sim 91%, Audio 88%, Structural 96%) - MUST state: 'Algorithmic indicators only; human review required'",
+                "Reason Codes & Transformation Notes (e.g., Speed shift 1.1x, Crop 15%, Pitch shifted)",
+                "Rights Metadata Panel (Flags 'rights verification needed' when license or territorial rights are missing)",
+                "Conflicting Signals Banner (e.g., High visual match vs Low audio match signal alert)"
+            ]
+        },
+        "human_review_decision_panel": {
+            "actions": [
+                "Accept Threat",
+                "Reject / False Positive",
+                "Monitor",
+                "Escalate",
+                "Mark Duplicate",
+                "Request More Evidence"
+            ],
+            "accept_sub_enforcements": [
+                "Takedown Request",
+                "Monetize Claim",
+                "Audio Mute",
+                "Geo Block"
+            ],
+            "mandatory_inputs": [
+                "Rationale & Legal Basis (Required text area)",
+                "Reason Code selection"
+            ],
+            "role_enforcement_lock": "Show disabled state with tooltip 'Approver role required for enforcement execution' when user is in Reviewer mode"
+        },
+        "asset_registration": {
+            "features": [
+                "Video/Audio File Drag & Drop",
+                "ISRC / ISAN Metadata Input",
+                "Territorial & Owner Rights Declaration",
+                "Real-Time Fingerprint & Vector Embedding Generation Progress Bar"
+            ]
+        },
+        "candidate_intake": {
+            "features": [
+                "Batch URL / Webhook Crawler Intake",
+                "Ingestion Queue Status Tracking",
+                "Threat Vector Scoring Engine Status"
+            ]
+        },
+        "audit_and_status": {
+            "features": [
+                "Auditable Decision Timeline",
+                "Preserved Disagreement History",
+                "System Worker Node Health Grid"
+            ]
+        }
+    },
+    "component_guidelines": {
+        "shadcn_usage": "Use customized Shadcn primitives (Table, Tabs, Dialog, DropdownMenu, Badge, Select, Tooltip, Sheet, Progress, Accordion, Alert, Slider)",
+        "toasts": "Use Sonner library for action feedback (e.g. 'Decision recorded: Case #CS-9402 Actioned as Takedown')",
+        "charts": "Recharts radar and sync area charts styled with amber/gold (#E5A93C), slate gray (#475569), and alert red (#EF4444)"
+    },
+    "media": {
+        "hero_and_cinematic_imagery": [
+            {
+                "description": "Vibrant neon film theater sign glowing at nighttime",
+                "url": "https://images.pexels.com/photos/1790556/pexels-photo-1790556.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "usage": "Login page background overlay and case header thumbnail"
+            },
+            {
+                "description": "Cameraman silhouette captures event in dimly lit theater ambiance",
+                "url": "https://images.pexels.com/photos/16453343/pexels-photo-16453343.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "usage": "Protected asset registration placeholder and empty states"
+            }
+        ]
+    },
+    "accessibility_and_testing": {
+        "data_testid_convention": "kebab-case, role-based, mandatory on all buttons, inputs, tables, badges, tabs, and decision triggers",
+        "contrast_standard": "WCAG AA / APCA compliant high-contrast dark palette (slate-950 background with slate-100 text)",
+        "prefers_reduced_motion": "Respect system settings by disabling frame animations"
+    },
+    "instructions_to_main_agent": [
+        "Build a complete, dense, high-performance operational analyst console for CineShield 2.0.",
+        "Set dark mode as default with sleek dark slate background (#090C10) and amber gold accent (#E5A93C).",
+        "The landing page MUST be the Review Queue with dense data rows, priority scores, sorting, filtering, saved views, and duplicate grouping.",
+        "Case detail view MUST include side-by-side synchronized video simulation, timeline matched segments, score breakdown radar, rights metadata with 'rights verification needed' status, conflicting signals alert, and decision panel.",
+        "Enforce required rationale on decisions and display role switcher (Analyst, Legal Approver, Admin) to showcase role-based enforcement locking.",
+        "Add complete data-testid attributes to all key interactions."
+    ]
+}
